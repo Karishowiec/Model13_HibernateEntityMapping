@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    implementation 'org.hibernate:hibernate-core:6.2.9.Final'
+    implementation 'com.h2database:h2:2.2.224'
+    implementation 'org.flywaydb:flyway-core:9.22.2'
+}
+
+application {
+    mainClass = 'com.spacetravel.Main'
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
