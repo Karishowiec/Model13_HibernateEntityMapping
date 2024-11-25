@@ -19,7 +19,7 @@ public class PlanetCrudService {
         }
     }
 
-    public Planet read(String id) {
+    public Planet read(Long id) {
         try (Session session = sessionFactory.openSession()) {
             return session.get(Planet.class, id);
         }

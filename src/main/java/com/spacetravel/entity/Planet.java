@@ -10,12 +10,12 @@ import jakarta.persistence.Table;
 public class Planet {
     @Id
     @Column(length = 10, nullable = false)
-    private String id;
+    private Long id;
 
     @Column(nullable = false, length = 500)
     private String name;
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -24,11 +24,11 @@ public class Planet {
     }
 
     public String getName() {
-        return "";
+        return name;
     }
 
     public Long getId() {
-        return 0L;
+        return id;
     }
 
 

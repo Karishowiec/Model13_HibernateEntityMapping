@@ -23,13 +23,13 @@ public class Main {
 
         // **Створення Planet**
         Planet planetFrom = new Planet();
-        planetFrom.setId("MARS");
+        planetFrom.setId(2L);
         planetFrom.setName("Mars");
         planetService.create(planetFrom);
         System.out.println("Planet created: " + planetFrom.getName());
 
         Planet planetTo = new Planet();
-        planetTo.setId("EARTH");
+        planetTo.setId(3L);
         planetTo.setName("Earth");
         planetService.create(planetTo);
         System.out.println("Planet created: " + planetTo.getName());
