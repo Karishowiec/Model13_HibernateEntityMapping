@@ -27,7 +27,7 @@ public class Ticket {
     @JoinColumn(name = "to_planet_id", nullable = false)
     private Planet toPlanet;
 
-    // Constructors
+
     public Ticket() {
         this.createdAt = LocalDateTime.now(); // Set current timestamp
     }
@@ -39,7 +39,7 @@ public class Ticket {
         this.toPlanet = toPlanet;
     }
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }

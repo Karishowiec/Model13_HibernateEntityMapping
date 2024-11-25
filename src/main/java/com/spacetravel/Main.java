@@ -21,37 +21,41 @@ public class Main {
         clientService.create(client);
         System.out.println("Client created: " + client.getName());
 
-        // **Створення Planet**
+
         Planet planetFrom = new Planet();
-        planetFrom.setId(2L);
+
         planetFrom.setName("Mars");
         planetService.create(planetFrom);
-        System.out.println("Planet created: " + planetFrom.getName());
 
         Planet planetTo = new Planet();
-        planetTo.setId(3L);
+
         planetTo.setName("Earth");
         planetService.create(planetTo);
         System.out.println("Planet created: " + planetTo.getName());
 
-        // **Читання даних Client**
+
         Client fetchedClient = clientService.read(client.getId());
         System.out.println("Fetched Client: " + fetchedClient.getName());
 
-        // **Читання даних Planet**
-        Planet fetchedPlanet = planetService.read(planetFrom.getId());
-        System.out.println("Fetched Planet: " + fetchedPlanet.getName());
 
-        // **Оновлення Client**
+        Planet fetchedPlanet = planetService.read(1L);
+        if (fetchedPlanet == null) {
+            System.out.println("Planet not found for ID: " +1L);
+        } else {
+            System.out.println("Fetched Planet: " + fetchedPlanet.getName());
+        }
+
+
+
         fetchedClient.setName("Jane Doe");
         clientService.update(fetchedClient);
         System.out.println("Client updated: " + fetchedClient.getName());
 
-        // **Видалення Planet**
+
         planetService.delete(planetTo.getId());
         System.out.println("Planet deleted: " + planetTo.getId());
 
-        // Закриття SessionFactory
+
         sessionFactory.close();
     }
 }
