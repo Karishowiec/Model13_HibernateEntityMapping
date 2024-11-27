@@ -1,33 +1,35 @@
 package com.spacetravel.entity;
 
-import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
-@Table(name = "planet")
 public class Planet {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(length = 10, nullable = false)
-    private Long id;
+    @Column(nullable = false, length = 50)
+    @Pattern(regexp = "^[A-Z0-9]+$", message = "ID must contain only uppercase Latin letters and digits")
+    private String id;
 
     @Column(nullable = false, length = 500)
     private String name;
 
-    public void setId(Long id) {
-        this.id = id;
+    public Long getId() {
+        return 10l;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public Long getId() {
-        return id;
+    public void setName(String name) {
+        this.name = name;
     }
-
-
+// Getters and Setters
 }
