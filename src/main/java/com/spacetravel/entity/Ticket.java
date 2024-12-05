@@ -1,19 +1,18 @@
 package com.spacetravel.entity;
 
-import com.spacetravel.entity.Client;
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+
+import java.security.Timestamp;
 
 @Entity
 @Table(name = "ticket")
 public class Ticket {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "created_at", nullable = false, columnDefinition = "TIMESTAMP")
-    private LocalDateTime createdAt;
+    @Column(nullable = false)
+    private Timestamp createdAt;
 
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
@@ -27,18 +26,13 @@ public class Ticket {
     @JoinColumn(name = "to_planet_id", nullable = false)
     private Planet toPlanet;
 
-
-    public Ticket() {
-        this.createdAt = LocalDateTime.now(); // Set current timestamp
-    }
-
-    public Ticket(Client client, Planet fromPlanet, Planet toPlanet) {
-        this();
+    public Ticket(Long id, Timestamp createdAt, Client client, Planet fromPlanet, Planet toPlanet) {
+        this.id = id;
+        this.createdAt = createdAt;
         this.client = client;
         this.fromPlanet = fromPlanet;
         this.toPlanet = toPlanet;
     }
-
 
     public Long getId() {
         return id;
@@ -48,11 +42,11 @@ public class Ticket {
         this.id = id;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 
